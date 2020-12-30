@@ -1,9 +1,8 @@
 package com.companyname.bank;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Hello world!
@@ -11,8 +10,7 @@ import java.util.LinkedList;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) throws ParseException {
         //枚举
         FreshJuice juice = new FreshJuice() ;
         juice.size = FreshJuice.FreshJuiceSize.MEDIUM ;
@@ -73,8 +71,22 @@ public class App
             System.out.println(it.next());
         }
 
+        //时间time
+        SimpleDateFormat st = new SimpleDateFormat("yyyy年MM月dd日");
+        String birthday = "2000年1月2日";
+        Date d = st.parse(birthday);
+        long myTime = d.getTime();
+        long currentTime = new Date().getTime();
+        System.out.println((currentTime-myTime)/1000/60/60/24/365);
 
-
+        //Scanner 获取输入
+        Scanner scan = new Scanner(System.in);
+        System.out.println("next 方式接受： ");
+        if (scan.hasNext()){
+            String str1 = scan.next();
+            System.out.println("输入的数据为："+str1);
+        }
+        scan.close();
     }
 
 }
