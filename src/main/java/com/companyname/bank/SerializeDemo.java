@@ -24,7 +24,5 @@ public class SerializeDemo {
         }catch(IOException i){
             i.printStackTrace();
         }
-
-
     }
 }

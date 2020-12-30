@@ -14,7 +14,7 @@ public class DeserializeDemo {
         Employee e = null;
         try {
             FileInputStream fileIn = new FileInputStream("/tmp/employee.ser");
-            ObjectInputStream in =new ObjectInputStream(fileIn);
+            ObjectInputStream in = new ObjectInputStream(fileIn);
             e = (Employee)in.readObject();
             in.close();
             fileIn.close();
