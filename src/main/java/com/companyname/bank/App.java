@@ -80,15 +80,50 @@ public class App
         System.out.println((currentTime-myTime)/1000/60/60/24/365);
 
         //Scanner 获取输入
-        Scanner scan = new Scanner(System.in);
-        System.out.println("next 方式接受： ");
-        if (scan.hasNext()){
-            String str1 = scan.next();
-            System.out.println("输入的数据为："+str1);
-        }
-        scan.close();
+//        Scanner scan = new Scanner(System.in);
+//        System.out.println("next 方式接受： ");
+//        if (scan.hasNext()){
+//            String str1 = scan.next();
+//            System.out.println("输入的数据为："+str1);
+//        }
+//        scan.close();
+
+        // StringBuffer和StringBuilder
+        StringBuilder sb = new StringBuilder(10);
+        sb.append("Rubby");
+        System.out.println(sb);
+        sb.append("!");
+        System.out.println(sb);
+        sb.insert(3,"nana");
+        System.out.println(sb);
+        sb.delete(3,5);
+        System.out.println(sb);
+
+        //泛型,创建不同类型数组： Integer, Double 和 Character
+        Integer[] intArray = { 1, 2, 3, 4, 5 };
+        Double[] doubleArray = { 1.1, 2.2, 3.3, 4.4 };
+        Character[] charArray = { 'H', 'E', 'L', 'L', 'O' };
+
+        System.out.println( "整型数组元素为:" );
+        printArray( intArray  ); // 传递一个整型数组
+
+        System.out.println( "\n双精度型数组元素为:" );
+        printArray( doubleArray ); // 传递一个双精度型数组
+
+        System.out.println( "\n字符型数组元素为:" );
+        printArray( charArray ); // 传递一个字符型数组
+
     }
 
+    // 泛型方法 printArray
+    public static < E > void printArray( E[] inputArray )
+    {
+        // 输出数组元素
+        for ( E element : inputArray ){
+            System.out.printf( "%s ", element );
+        }
+        System.out.println();
+    }
 }
 
 class FreshJuice{
@@ -96,3 +131,4 @@ class FreshJuice{
     FreshJuiceSize size;
 
 }
+
