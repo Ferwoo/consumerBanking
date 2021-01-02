@@ -23,9 +23,32 @@ public class MySQLDemo {
             //注册驱动
             Class.forName(JDBC_DRIVER);
             System.out.println("连接数据库...");
-            conn = DriverManager.getConnection(DB_URL,USER,PASSWORD)
+            conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
 
+            //查询
+            System.out.println("实例Statement对象。。。");
+            stmt = conn.createStatement();
+            String sql;
+            sql = "SELECT id, name, url FROM websites";
+            ResultSet rs = stmt.executeQuery(sql);
 
+            while (rs.next()) {
+                //展开结果集数据库；
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String url = rs.getString("url");
+
+                // 输出数据
+                System.out.print("ID: " + id);
+                System.out.print(", 站点名称: " + name);
+                System.out.print(", 站点 URL: " + url);
+                System.out.print("\n");
+
+            }
+            // 完成后关闭
+            rs.close();
+            stmt.close();
+            conn.close();
         }catch(SQLException se){
             // 处理 JDBC 错误
             se.printStackTrace();
@@ -33,8 +56,17 @@ public class MySQLDemo {
             // 处理 Class.forName 错误
             e.printStackTrace();
         }
-
+        finally {
+            try {
+                if(stmt!=null) stmt.close();
+            }catch(SQLException se2){
+            }// 什么都不做
+            try{
+                if(conn!=null) conn.close();
+            }catch(SQLException se){
+                se.printStackTrace();
+            }
+        }
+        System.out.println("Goodbye!");
     }
-
-
 }
