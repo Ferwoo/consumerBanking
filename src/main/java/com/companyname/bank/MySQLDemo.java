@@ -43,7 +43,6 @@ public class MySQLDemo {
                 System.out.print(", 站点名称: " + name);
                 System.out.print(", 站点 URL: " + url);
                 System.out.print("\n");
-
             }
             // 完成后关闭
             rs.close();
@@ -58,11 +57,13 @@ public class MySQLDemo {
         }
         finally {
             try {
-                if(stmt!=null) stmt.close();
+                if(stmt!=null)
+                    stmt.close();
             }catch(SQLException se2){
             }// 什么都不做
             try{
-                if(conn!=null) conn.close();
+                if(conn !=null)
+                    conn.close();
             }catch(SQLException se){
                 se.printStackTrace();
             }
