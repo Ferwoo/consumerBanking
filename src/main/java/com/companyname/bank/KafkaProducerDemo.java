@@ -1,6 +1,6 @@
 package com.companyname.bank;
 
-import com.ricky.codelab.kafka.util.PropertyUtils;
+//import com.ricky.codelab.kafka.util.PropertyUtils;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -27,7 +27,7 @@ public class KafkaProducerDemo {
       // 启动生产者
       Producer<String, String> producer = null;
       try {
-         Properties props = PropertyUtils.load("producer_config.properties");
+//         Properties props = PropertyUtils.load("producer_config.properties");
          producer = new KafkaProducer<String, String>(props);
          for (int i = 0; i < total; i++) {
             producer.send(new ProducerRecord<String, String>("hello",
