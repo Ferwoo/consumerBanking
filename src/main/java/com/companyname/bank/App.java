@@ -46,6 +46,7 @@ public class App
             System.out.println("The finally statement is executed");
         }
 
+
         //链表
         LinkedList<String> site1 = new LinkedList<String>();
         site1.add("a1");
@@ -113,6 +114,11 @@ public class App
         System.out.println( "\n字符型数组元素为:" );
         printArray( charArray ); // 传递一个字符型数组
 
+        //时间
+        Date dNow = new Date( );
+        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+
+        System.out.println("当前时间为: " + ft.format(dNow));
     }
 
     // 泛型方法 printArray
@@ -124,6 +130,7 @@ public class App
         }
         System.out.println();
     }
+
 }
 
 class FreshJuice{
