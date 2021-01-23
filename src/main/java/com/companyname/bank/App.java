@@ -116,6 +116,7 @@ public class App
 
         //时间
         Date dNow = new Date( );
+        System.out.println(dNow);
         SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
 
         System.out.println("当前时间为: " + ft.format(dNow));
